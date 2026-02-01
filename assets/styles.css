@@ -1,0 +1,396 @@
+/* Thème SPA + poétique – inspiré de la photo (eau, brume, lumière) */
+:root{
+  --bg:#120f14;          /* nuit prune */
+  --panel:#1a1720;       /* velours sombre */
+  --panel2:#201c28;
+  --text:#f4f2f6;
+  --muted:#c4bed0;
+  --line:rgba(255,255,255,.12);
+
+  --accent:#6fe6d6;      /* eau / spa (plus présent) */
+  --accent2:#c6a7f2;     /* fleurs / rêve */
+  --accent3:#e2b56a;     /* lumière chaude */
+
+  --shadow: 0 18px 46px rgba(0,0,0,.52);
+  --radius: 22px;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 600px at 18% 12%, rgba(143,195,173,.35), transparent 60%),
+    radial-gradient(800px 520px at 85% 22%, rgba(139,187,214,.32), transparent 60%),
+    linear-gradient(180deg, #f3f7f5, var(--bg));
+  color:var(--text);
+  line-height:1.65;
+}
+
+
+
+
+a{color:inherit}
+img{max-width:100%; height:auto; display:block}
+
+.container{
+  width:min(1100px, 92vw);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,.75);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0;
+}
+.brand{
+  font-weight:700;
+  text-decoration:none;
+  letter-spacing:.2px;
+}
+.nav{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+.nav a{text-decoration:none; opacity:.92}
+.nav a:hover{opacity:1; text-decoration:underline}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#1f2b27;
+  font-weight:700;
+  letter-spacing:.2px;
+  text-decoration:none;
+  border:0;
+  box-shadow: var(--shadow);
+}
+.btn:hover{filter:brightness(1.05)}
+.btn:hover{transform: translateY(-1px)}
+.btn:active{transform: translateY(0)}
+.btn--ghost{
+  background: rgba(255,255,255,.65);
+  color: var(--text);
+  border:1px solid rgba(47,58,54,.18);
+  box-shadow:none;
+}
+.btn--ghost:hover{background: rgba(14,27,20,.55)}
+.btn--small{padding:9px 12px; font-weight:700}
+
+.section{padding:44px 0}
+.lead{font-size:1.1rem; color:var(--muted); margin-top:8px}
+.muted{color:var(--muted)}
+
+.hero{position:relative; border-bottom:1px solid var(--line)}
+.hero-media{
+  max-height: 520px;
+  overflow:hidden;
+}
+.hero-media img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+.hero-content{
+  position:relative;
+  margin-top:-120px;
+  padding:28px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.82);
+  border:1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.hero h1{margin:0 0 6px; font-size:2.2rem}
+.hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 12px}
+.hero-badges{display:flex; gap:10px; flex-wrap:wrap}
+.badge{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(105,192,141,.26);
+  background: rgba(17,19,26,.55);
+  color: var(--text);
+  font-size:.9rem;
+}
+
+/* Layout */
+.grid-2{display:grid; grid-template-columns: 1.1fr .9fr; gap:18px}
+.grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
+@media (max-width: 900px){
+  .grid-3{grid-template-columns: 1fr}
+  .grid-2{grid-template-columns: 1fr}
+  .hero-content{
+  position:relative;
+  margin-top:-120px;
+  padding:28px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.82);
+  border:1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+  .hero-media img{height:420px}
+}
+
+/* Cards */
+.card{
+  border:1px solid var(--line);
+  background: var(--panel);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+.card--plain{padding:18px; box-shadow:none}
+.card img{aspect-ratio: 16/10; object-fit:cover}
+.card-body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 600px at 18% 12%, rgba(143,195,173,.35), transparent 60%),
+    radial-gradient(800px 520px at 85% 22%, rgba(139,187,214,.32), transparent 60%),
+    linear-gradient(180deg, #f3f7f5, var(--bg));
+  color:var(--text);
+  line-height:1.65;
+}
+
+
+
+
+.stack > * + *{margin-top:14px}
+.bullets{margin:0; padding-left:18px}
+.checklist{margin:0; padding-left:18px}
+.checklist li{margin:6px 0}
+
+/* Callout */
+.callout{padding-top:0}
+.callout-inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px;
+  border:1px solid rgba(105,192,141,.26);
+  background: rgba(14,27,20,.55);
+  border-radius: var(--radius);
+}
+.callout-actions{display:flex; gap:10px; flex-wrap:wrap}
+@media (max-width: 900px){
+  .callout-inner{flex-direction:column}
+}
+
+/* Mini gallery */
+.gallery-mini{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+}
+.gallery-mini figure{margin:0; border-radius:12px; overflow:hidden; border:1px solid var(--line)}
+.gallery-mini img{aspect-ratio: 1/1; object-fit:cover}
+
+/* Form */
+.form label{display:block; margin-top:10px}
+input, textarea{
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background: rgba(11,12,16,.55);
+  color: var(--text);
+}
+button[disabled]{opacity:.6; cursor:not-allowed}
+
+/* Thumbnails */
+.thumbs{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:10px;
+}
+@media (max-width: 1100px){ .thumbs{grid-template-columns: repeat(4, 1fr)} }
+@media (max-width: 700px){ .thumbs{grid-template-columns: repeat(2, 1fr)} }
+.thumb{border-radius:12px; overflow:hidden; border:1px solid var(--line); background: rgba(17,19,26,.6)}
+.thumb img{aspect-ratio: 1/1; object-fit:cover; transition: transform .2s ease}
+.thumb:hover img{transform: scale(1.03)}
+
+/* Lightbox */
+.lightbox{
+  border:0;
+  padding:0;
+  border-radius: 16px;
+  width:min(1000px, 96vw);
+  background: rgba(17,19,26,.95);
+  box-shadow: var(--shadow);
+}
+.lightbox::backdrop{background: rgba(0,0,0,.7)}
+.lightbox img{width:100%; height:auto; max-height: 86vh; object-fit:contain}
+.lightbox-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.35);
+  color: var(--text);
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--line);
+  padding:22px 0;
+  margin-top:40px;
+  background: rgba(11,12,16,.65);
+}
+.footer-inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.footer-right{display:flex; gap:14px; flex-wrap:wrap}
+.footer-right a{opacity:.9; text-decoration:none}
+.footer-right a:hover{opacity:1; text-decoration:underline}
+.footer-brand{font-weight:800}
+.footer-meta{color:var(--muted); font-size:.95rem; margin-top:4px}
+
+.note{
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(139,233,253,.20);
+  background: rgba(17,19,26,.55);
+}
+
+
+/* Nature vibe */
+h1,h2,h3{letter-spacing:.2px}
+hr{border:0; border-top:1px solid var(--line); margin:18px 0}
+.card img, .hero-media img{
+  filter: saturate(1.10) contrast(1.03);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  /* texture très légère (sans image) */
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.03), transparent 40%),
+    radial-gradient(600px 220px at 20% 30%, rgba(79,182,214,.08), transparent 60%),
+    radial-gradient(520px 240px at 78% 65%, rgba(105,192,141,.09), transparent 65%);
+  mix-blend-mode: overlay;
+  opacity:.55;
+}
+
+/* Pastel vibe */
+h1,h2,h3{letter-spacing:.3px}
+.hero-media img, .card img{
+  filter: saturate(1.05) contrast(1.02);
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(500px 220px at 25% 35%, rgba(159,199,222,.25), transparent 60%),
+    radial-gradient(520px 240px at 75% 65%, rgba(158,207,186,.25), transparent 60%);
+  opacity:.5;
+}
+
+.hero-media img{
+  filter: saturate(1.1) contrast(1.08);
+}
+
+body{
+  background:
+    radial-gradient(900px 600px at 70% 80%, rgba(207,163,90,.18), transparent 60%),
+    radial-gradient(800px 500px at 20% 20%, rgba(114,199,176,.18), transparent 60%),
+    linear-gradient(180deg, #151114, #1a1620);
+}
+
+.hero-media img{
+  filter: saturate(1.15) contrast(1.1);
+}
+
+
+
+/* Overrides SPA + poétique */
+body{
+  background:
+    radial-gradient(900px 600px at 65% 85%, rgba(226,181,106,.18), transparent 60%),
+    radial-gradient(980px 640px at 25% 20%, rgba(111,230,214,.20), transparent 60%),
+    radial-gradient(780px 560px at 82% 18%, rgba(198,167,242,.16), transparent 62%),
+    linear-gradient(180deg, #120f14, #171321 55%, #120f14);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(700px 280px at 35% 35%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(650px 260px at 70% 55%, rgba(111,230,214,.08), transparent 62%),
+    radial-gradient(650px 260px at 78% 30%, rgba(198,167,242,.07), transparent 62%);
+  opacity:.55;
+  mix-blend-mode: screen;
+}
+
+/* Typo: un peu plus “poétique” */
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+h1,h2,h3{
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  letter-spacing:.3px;
+}
+
+/* Boutons: plus “eau” + légère lueur */
+.btn{
+  background: linear-gradient(135deg, rgba(111,230,214,.98), rgba(198,167,242,.72));
+  color:#0a0f10;
+  box-shadow: 0 16px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(111,230,214,.18);
+}
+.btn:hover{
+  filter: brightness(1.06);
+  box-shadow: 0 18px 46px rgba(0,0,0,.55), 0 0 26px rgba(111,230,214,.18);
+}
+.btn--ghost{
+  background: rgba(26,23,32,.35);
+  border:1px solid rgba(111,230,214,.25);
+}
+.btn--ghost:hover{
+  background: rgba(26,23,32,.55);
+}
+
+/* Cartes: plus “cocon” */
+.card{
+  background: linear-gradient(180deg, rgba(26,23,32,.82), rgba(32,28,40,.70));
+  border:1px solid rgba(255,255,255,.10);
+}
+.badge{
+  border:1px solid rgba(111,230,214,.20);
+  background: rgba(26,23,32,.52);
+}
+
+/* Images: mettre l’eau en valeur */
+.hero-media img, .card img{
+  filter: saturate(1.18) contrast(1.12);
+}
