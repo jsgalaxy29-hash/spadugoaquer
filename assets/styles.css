@@ -153,12 +153,19 @@ img{max-width:100%; height:auto; display:block}
   box-shadow: var(--shadow);
 }
 .card--plain{padding:18px; box-shadow:none}
+.card img{aspect-ratio: 16/10; object-fit:cover}
 .card-body{
-  padding:16px 18px 18px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(900px 600px at 18% 12%, rgba(143,195,173,.35), transparent 60%),
+    radial-gradient(800px 520px at 85% 22%, rgba(139,187,214,.32), transparent 60%),
+    linear-gradient(180deg, #f3f7f5, var(--bg));
+  color:var(--text);
+  line-height:1.65;
 }
+
+
 
 
 .stack > * + *{margin-top:14px}
@@ -389,48 +396,211 @@ h1,h2,h3{
 }
 
 
-.card-media{
-  position:relative;
-  overflow:hidden;
+
+/* ============================================================
+   THÈME "OEUVRE ABSTRAITE" — surcouche (activer via <body class="theme-abstract">)
+   Objectif: plus artistique, brume/eau/lumière, cartes "verre" organiques.
+   ============================================================ */
+
+body.theme-abstract{
+  /* Palette un peu plus nocturne / lavande + eau */
+  --bg:#f7f4f6;
+  --panel:#ffffff;
+  --text:#263033;
+  --muted:#5c6a6c;
+  --line:rgba(38,48,51,12);
+
+  --accent:#7fd9d4;   /* eau */
+  --accent2:#cbb8f1;  /* lavande */
+  --accent3:#ffd2a6;  /* lumière chaude */
+
+  background:
+    radial-gradient(1200px 700px at 18% 20%, rgba(127,217,212,22), transparent 62%),
+    radial-gradient(900px 640px at 85% 26%, rgba(203,184,241,22), transparent 62%),
+    radial-gradient(760px 540px at 70% 82%, rgba(255,210,166,16), transparent 62%),
+    linear-gradient(180deg, #fbfafc, var(--bg) 55%, #f1eef3);
 }
-.card-media img{
-  width:100%;
-  aspect-ratio: 16/10;
-  object-fit:cover;
-  transform: scale(1.01);
-  transition: transform .35s ease;
+
+/* "Encres" abstraites en fond (sans images) */
+body.theme-abstract::before,
+body.theme-abstract::after{
+  content:"";
+  position:fixed;
+  inset:-12vh -12vw;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.75;
+  filter: blur(0px);
 }
-.card-media::after{
+body.theme-abstract::before{
+  background:
+    radial-gradient(520px 420px at 14% 38%, rgba(255,255,255,40), transparent 62%),
+    radial-gradient(700px 540px at 78% 30%, rgba(127,217,212,18), transparent 65%),
+    radial-gradient(760px 580px at 62% 78%, rgba(203,184,241,16), transparent 66%),
+    conic-gradient(from 210deg at 52% 48%,
+      rgba(255,210,166,10),
+      rgba(127,217,212,10),
+      rgba(203,184,241,10),
+      rgba(255,210,166,10));
+  mix-blend-mode: screen;
+}
+body.theme-abstract::after{
+  background:
+    linear-gradient(115deg, rgba(255,255,255,06), transparent 38%),
+    radial-gradient(420px 320px at 28% 65%, rgba(127,217,212,10), transparent 62%),
+    radial-gradient(460px 340px at 72% 62%, rgba(203,184,241,10), transparent 62%);
+  mix-blend-mode: overlay;
+  opacity:.55;
+}
+
+/* Header plus "flottant" */
+body.theme-abstract .site-header{
+  background: rgba(255,255,255,55);
+  border-bottom:1px solid rgba(255,255,255,35);
+  box-shadow: 0 10px 30px rgba(14,18,18,10);
+}
+body.theme-abstract .nav a{opacity:.88}
+body.theme-abstract .nav a:hover{opacity:1}
+
+/* HERO: mettre en valeur le jacuzzi "sans bouger l'image"
+   => on relève l'image via filtres + spotlight doux au centre. */
+body.theme-abstract .hero{border-bottom:1px solid rgba(255,255,255,35)}
+body.theme-abstract .hero-media{position:relative}
+body.theme-abstract .hero-media img{
+  filter: saturate(1.18) contrast(1.12) brightness(1.06);
+  transform: translateZ(0);
+}
+/* spotlight (relève le sujet + fait "lueur eau") */
+body.theme-abstract .hero-media::before{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.32));
+  background:
+    radial-gradient(520px 360px at 56% 56%, rgba(120,255,210,18), transparent 60%),
+    radial-gradient(780px 520px at 60% 58%, rgba(255,210,166,10), transparent 62%),
+    linear-gradient(180deg, rgba(0,0,0,18), rgba(0,0,0,05) 45%, rgba(0,0,0,22));
+  mix-blend-mode: screen;
+  opacity:.85;
   pointer-events:none;
 }
-.card-tag{
+/* vignette légère pour faire ressortir le centre */
+body.theme-abstract .hero-media::after{
+  content:"";
   position:absolute;
-  left:14px;
-  bottom:12px;
+  inset:0;
+  background: radial-gradient(1200px 520px at 55% 50%, transparent 35%, rgba(0,0,0,20) 78%);
+  opacity:.55;
+  pointer-events:none;
+}
+
+/* Bloc titre en verre plus "galerie d'art" */
+body.theme-abstract .hero-content{
+  background: linear-gradient(
+  180deg,
+  rgba(255,255,255,45),
+  rgba(255,255,255,25)
+);
+  border: 1px solid rgba(255,255,255,42);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 30px 70px rgba(10,14,14,18),
+    0 0 0 1px rgba(127,217,212,10);
+}
+body.theme-abstract h1,h2,h3{
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  letter-spacing:.35px;
+}
+
+/* Boutons: plus "lumière liquide" */
+body.theme-abstract .btn{
+  background: linear-gradient(135deg, rgba(127,217,212,92), rgba(203,184,241,78));
+  box-shadow:
+    0 18px 40px rgba(12,16,16,16),
+    0 0 26px rgba(127,217,212,18);
+}
+body.theme-abstract .btn:hover{
+  filter: brightness(1.04);
+}
+body.theme-abstract .btn--ghost{
+  background: rgba(255,255,255,40);
+  border:1px solid rgba(255,255,255,45);
+}
+
+/* Cartes: verre organique + halo */
+body.theme-abstract .card{
+  position:relative;
+  background: rgba(255,255,255,52);
+  border: 1px solid rgba(255,255,255,48);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 22px 55px rgba(10,14,14,14),
+    0 0 0 1px rgba(203,184,241,10);
+  border-radius: 28px 18px 26px 16px;
+  transform: translateZ(0);
+}
+body.theme-abstract .card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  background:
+    radial-gradient(540px 220px at 20% 12%, rgba(127,217,212,18), transparent 60%),
+    radial-gradient(520px 240px at 86% 18%, rgba(203,184,241,18), transparent 60%),
+    radial-gradient(520px 260px at 70% 90%, rgba(255,210,166,12), transparent 62%);
+  opacity:.9;
+  mix-blend-mode: overlay;
+}
+body.theme-abstract .card img{
+  filter: saturate(1.12) contrast(1.06) brightness(1.03);
+  transition: transform .35s ease, filter .35s ease;
+}
+body.theme-abstract .card:hover{
+  transform: translateY(-6px);
+}
+body.theme-abstract .card:hover img{
+  transform: scale(1.04);
+  filter: saturate(1.18) contrast(1.08) brightness(1.06);
+}
+
+body.theme-abstract .card-body{
+  padding:18px 18px 20px;
+  background: transparent; /* IMPORTANT: ne pas réinjecter un fond "body" ici */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+body.theme-abstract .card-body h2{margin:10px 0 8px}
+body.theme-abstract .card-tag{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:7px 10px;
+  padding:6px 10px;
   border-radius:999px;
-  background: rgba(255,255,255,.86);
-  border:1px solid rgba(46,60,60,.14);
-  color: var(--text);
-  font-size:.88rem;
-  backdrop-filter: blur(8px);
+  font-size:.82rem;
+  letter-spacing:.2px;
+  background: rgba(255,255,255,52);
+  border:1px solid rgba(255,255,255,45);
+  box-shadow: 0 12px 26px rgba(10,14,14,10);
+}
+body.theme-abstract .link{
+  display:inline-flex;
+  margin-top:10px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(38,48,51,22);
+  opacity:.92;
+}
+body.theme-abstract .link:hover{opacity:1}
+
+/* Callout + footer un peu plus "verre" */
+body.theme-abstract .callout-inner,
+body.theme-abstract .site-footer{
+  background: rgba(255,255,255,52);
+  border:1px solid rgba(255,255,255,48);
+  backdrop-filter: blur(14px);
 }
 
-.card h2{margin:0; font-size:1.25rem}
-.card p{margin:0; color:var(--muted)}
-.card .link{margin-top:auto; font-weight:700; text-decoration:none; opacity:.92}
-.card .link:hover{text-decoration:underline; opacity:1}
-
-.card{transition: transform .18s ease, box-shadow .18s ease}
-.card:hover{transform: translateY(-3px); box-shadow: 0 22px 55px rgba(20,28,28,.16)}
-.card:hover .card-media img{transform: scale(1.05)}
-
-
-.grid-3{align-items:stretch}
+/* Mobile: limiter les effets */
+@media (max-width: 900px){
+  body.theme-abstract .hero-media::before,
+  body.theme-abstract .hero-media::after{opacity:.55}
+  body.theme-abstract .card{border-radius:22px}
+}
