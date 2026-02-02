@@ -1,17 +1,17 @@
 /* Thème SPA + poétique – inspiré de la photo (eau, brume, lumière) */
 :root{
-  --bg:#120f14;          /* nuit prune */
-  --panel:#1a1720;       /* velours sombre */
-  --panel2:#201c28;
-  --text:#f4f2f6;
-  --muted:#c4bed0;
-  --line:rgba(255,255,255,.12);
+  --bg:#f6f5f2;          /* ivoire doux */
+  --panel:#ffffff;       /* papier */
+  --panel2:#f3f1ee;
+  --text:#2f3a3a;
+  --muted:#6a7474;
+  --line:rgba(46,60,60,.14);
 
-  --accent:#6fe6d6;      /* eau / spa (plus présent) */
-  --accent2:#c6a7f2;     /* fleurs / rêve */
-  --accent3:#e2b56a;     /* lumière chaude */
+  --accent:#7fcfcb;      /* eau claire */
+  --accent2:#c9b7e6;     /* lavande */
+  --accent3:#e9c892;     /* lumière chaude */
 
-  --shadow: 0 18px 46px rgba(0,0,0,.52);
+  --shadow: 0 18px 40px rgba(20,28,28,.12);
   --radius: 22px;
 }
 *{box-sizing:border-box}
@@ -82,12 +82,12 @@ img{max-width:100%; height:auto; display:block}
 .btn:hover{transform: translateY(-1px)}
 .btn:active{transform: translateY(0)}
 .btn--ghost{
-  background: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.9);
   color: var(--text);
-  border:1px solid rgba(47,58,54,.18);
+  border:1px solid rgba(47,58,54,.16);
   box-shadow:none;
 }
-.btn--ghost:hover{background: rgba(14,27,20,.55)}
+.btn--ghost:hover{background: rgba(240,246,245,.9)}
 .btn--small{padding:9px 12px; font-weight:700}
 
 .section{padding:44px 0}
@@ -120,8 +120,8 @@ img{max-width:100%; height:auto; display:block}
 .badge{
   padding:7px 10px;
   border-radius:999px;
-  border:1px solid rgba(105,192,141,.26);
-  background: rgba(17,19,26,.55);
+  border:1px solid rgba(105,192,141,.22);
+  background: rgba(255,255,255,.7);
   color: var(--text);
   font-size:.9rem;
 }
@@ -181,8 +181,8 @@ img{max-width:100%; height:auto; display:block}
   justify-content:space-between;
   gap:18px;
   padding:18px;
-  border:1px solid rgba(105,192,141,.26);
-  background: rgba(14,27,20,.55);
+  border:1px solid rgba(105,192,141,.22);
+  background: rgba(255,255,255,.78);
   border-radius: var(--radius);
 }
 .callout-actions{display:flex; gap:10px; flex-wrap:wrap}
@@ -207,7 +207,7 @@ input, textarea{
   padding:12px 12px;
   border-radius:12px;
   border:1px solid var(--line);
-  background: rgba(11,12,16,.55);
+  background: rgba(255,255,255,.92);
   color: var(--text);
 }
 button[disabled]{opacity:.6; cursor:not-allowed}
@@ -220,7 +220,7 @@ button[disabled]{opacity:.6; cursor:not-allowed}
 }
 @media (max-width: 1100px){ .thumbs{grid-template-columns: repeat(4, 1fr)} }
 @media (max-width: 700px){ .thumbs{grid-template-columns: repeat(2, 1fr)} }
-.thumb{border-radius:12px; overflow:hidden; border:1px solid var(--line); background: rgba(17,19,26,.6)}
+.thumb{border-radius:12px; overflow:hidden; border:1px solid var(--line); background: rgba(255,255,255,.7)}
 .thumb img{aspect-ratio: 1/1; object-fit:cover; transition: transform .2s ease}
 .thumb:hover img{transform: scale(1.03)}
 
@@ -230,10 +230,10 @@ button[disabled]{opacity:.6; cursor:not-allowed}
   padding:0;
   border-radius: 16px;
   width:min(1000px, 96vw);
-  background: rgba(17,19,26,.95);
+  background: rgba(255,255,255,.98);
   box-shadow: var(--shadow);
 }
-.lightbox::backdrop{background: rgba(0,0,0,.7)}
+.lightbox::backdrop{background: rgba(46,60,60,.45)}
 .lightbox img{width:100%; height:auto; max-height: 86vh; object-fit:contain}
 .lightbox-close{
   position:absolute;
@@ -243,7 +243,7 @@ button[disabled]{opacity:.6; cursor:not-allowed}
   height:44px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  background: rgba(0,0,0,.35);
+  background: rgba(255,255,255,.85);
   color: var(--text);
   font-size:26px;
   cursor:pointer;
@@ -254,7 +254,7 @@ button[disabled]{opacity:.6; cursor:not-allowed}
   border-top:1px solid var(--line);
   padding:22px 0;
   margin-top:40px;
-  background: rgba(11,12,16,.65);
+  background: rgba(255,255,255,.78);
 }
 .footer-inner{
   display:flex;
@@ -273,7 +273,7 @@ button[disabled]{opacity:.6; cursor:not-allowed}
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(139,233,253,.20);
-  background: rgba(17,19,26,.55);
+  background: rgba(255,255,255,.78);
 }
 
 
@@ -320,9 +320,9 @@ body::before{
 
 body{
   background:
-    radial-gradient(900px 600px at 70% 80%, rgba(207,163,90,.18), transparent 60%),
-    radial-gradient(800px 500px at 20% 20%, rgba(114,199,176,.18), transparent 60%),
-    linear-gradient(180deg, #151114, #1a1620);
+    radial-gradient(900px 600px at 70% 80%, rgba(233,200,146,.26), transparent 60%),
+    radial-gradient(800px 500px at 20% 20%, rgba(127,207,203,.26), transparent 60%),
+    linear-gradient(180deg, #f8f7f4, #f1efea);
 }
 
 .hero-media img{
@@ -334,10 +334,10 @@ body{
 /* Overrides SPA + poétique */
 body{
   background:
-    radial-gradient(900px 600px at 65% 85%, rgba(226,181,106,.18), transparent 60%),
-    radial-gradient(980px 640px at 25% 20%, rgba(111,230,214,.20), transparent 60%),
-    radial-gradient(780px 560px at 82% 18%, rgba(198,167,242,.16), transparent 62%),
-    linear-gradient(180deg, #120f14, #171321 55%, #120f14);
+    radial-gradient(900px 600px at 65% 85%, rgba(233,200,146,.24), transparent 60%),
+    radial-gradient(980px 640px at 25% 20%, rgba(127,207,203,.22), transparent 60%),
+    radial-gradient(780px 560px at 82% 18%, rgba(201,183,230,.22), transparent 62%),
+    linear-gradient(180deg, #fbfaf7, #f1efea 55%, #f6f4ef);
 }
 
 body::before{
@@ -346,9 +346,9 @@ body::before{
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(700px 280px at 35% 35%, rgba(255,255,255,.06), transparent 60%),
-    radial-gradient(650px 260px at 70% 55%, rgba(111,230,214,.08), transparent 62%),
-    radial-gradient(650px 260px at 78% 30%, rgba(198,167,242,.07), transparent 62%);
+    radial-gradient(700px 280px at 35% 35%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(650px 260px at 70% 55%, rgba(127,207,203,.12), transparent 62%),
+    radial-gradient(650px 260px at 78% 30%, rgba(201,183,230,.12), transparent 62%);
   opacity:.55;
   mix-blend-mode: screen;
 }
@@ -364,33 +364,33 @@ h1,h2,h3{
 
 /* Boutons: plus “eau” + légère lueur */
 .btn{
-  background: linear-gradient(135deg, rgba(111,230,214,.98), rgba(198,167,242,.72));
-  color:#0a0f10;
-  box-shadow: 0 16px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(111,230,214,.18);
+  background: linear-gradient(135deg, rgba(127,207,203,.98), rgba(201,183,230,.75));
+  color:#1f2a2a;
+  box-shadow: 0 16px 36px rgba(40,52,52,.18), 0 0 0 1px rgba(127,207,203,.25);
 }
 .btn:hover{
-  filter: brightness(1.06);
-  box-shadow: 0 18px 46px rgba(0,0,0,.55), 0 0 26px rgba(111,230,214,.18);
+  filter: brightness(1.03);
+  box-shadow: 0 18px 40px rgba(40,52,52,.22), 0 0 26px rgba(127,207,203,.22);
 }
 .btn--ghost{
-  background: rgba(26,23,32,.35);
-  border:1px solid rgba(111,230,214,.25);
+  background: rgba(255,255,255,.85);
+  border:1px solid rgba(127,207,203,.25);
 }
 .btn--ghost:hover{
-  background: rgba(26,23,32,.55);
+  background: rgba(244,248,247,.95);
 }
 
 /* Cartes: plus “cocon” */
 .card{
-  background: linear-gradient(180deg, rgba(26,23,32,.82), rgba(32,28,40,.70));
-  border:1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,243,238,.96));
+  border:1px solid rgba(46,60,60,.12);
 }
 .badge{
-  border:1px solid rgba(111,230,214,.20);
-  background: rgba(26,23,32,.52);
+  border:1px solid rgba(127,207,203,.22);
+  background: rgba(255,255,255,.8);
 }
 
 /* Images: mettre l’eau en valeur */
 .hero-media img, .card img{
-  filter: saturate(1.18) contrast(1.12);
+  filter: saturate(1.08) contrast(1.03);
 }
